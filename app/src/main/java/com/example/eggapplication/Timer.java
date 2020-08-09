@@ -3,8 +3,10 @@ package com.example.eggapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.view.View;
 
 import com.example.eggapplication.databinding.ActivityTimerBinding;
@@ -30,7 +32,7 @@ public class Timer extends AppCompatActivity {
 
         if (sook.equals("bansook")){
             timerText = "7:30";
-            timerLeft =450000;
+            timerLeft =1000;
 
         } else if (sook.equals("wansook")){
             timerText = "9:00";
@@ -77,6 +79,8 @@ public class Timer extends AppCompatActivity {
 
     public void startTimer(){
         countDownTimer = new CountDownTimer(timerLeftInMilliSeconds=timerLeft, 1000) {
+            private MediaPlayer mediaPlayer;
+
             @Override
             public void onTick(long l) {
                 timerLeftInMilliSeconds=l;
@@ -86,7 +90,10 @@ public class Timer extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                Vibrator vib = (Vibrator)getSystemService(VIBRATOR_SERVICE);
+                vib.vibrate(1000);
+                this.mediaPlayer = MediaPlayer.create(Timer.this, R.raw.chicken_cry);
+                this.mediaPlayer.start();
             }
         }.start();
 
