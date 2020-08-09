@@ -24,6 +24,12 @@ public class Timer extends AppCompatActivity {
         Intent intent = getIntent();
         String sook = intent.getStringExtra("sook");
 
+        Timer timer = new Timer();
+
+        if (sook.equals("ban")){
+
+        }
+
         binding.text.setText(sook);
 
         binding.btnStart.setOnClickListener(new View.OnClickListener() {
