@@ -26,7 +26,7 @@ public class Ready extends AppCompatActivity {
         binding.btnReady.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( Ready.this, Ready.class );
+                Intent intent = new Intent( Ready.this, Start.class );
                 startActivity(intent); //액티비티 이동
             }
         });

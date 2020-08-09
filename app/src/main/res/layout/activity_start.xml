@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="fitStart"
-                android:src="@drawable/wan" />
+                android:src="@drawable/wan"
+                android:background="#00ffffff"/>
 
             <ImageButton
                 android:id="@+id/btn_ban"
@@ -31,7 +32,8 @@
                 android:padding="3dp"
                 android:src="@drawable/ban"
                 android:layout_weight="1"
-                android:scaleType="fitStart"/>
+                android:scaleType="fitStart"
+                android:background="#00ffffff"/>
 
         </LinearLayout>
 
