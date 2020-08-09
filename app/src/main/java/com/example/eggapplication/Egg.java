@@ -14,16 +14,7 @@ public class Egg {
                             "  2. 식초와 소금을 넣어주면 깔끔하게 껍질을 제거할 수 있어요.\n\n" +
                             "  3. 냄비에 빈틈없이 계란을 채워 넣으면 계란이 잘 깨지지 않아요.\n\n" +
                             "  4. 노른자가 한 가운데에 있도록 하려면 달걀을 삶는 동안 계속\n"+
-                            "  저어주세요.\n\n"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+
-                            "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+                            "  저어주세요.\n\n"
 
 
 
