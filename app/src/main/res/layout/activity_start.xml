@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ready">
+    tools:context=".Start">
 
 
     <FrameLayout
@@ -16,14 +16,22 @@
             android:layout_width="match_parent"
             android:layout_height="200dp">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/btn_wan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="fitStart"
+                android:src="@drawable/wan" />
+
+            <ImageButton
+                android:id="@+id/btn_ban"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:src="@drawable/ban"
+                android:layout_weight="1"
+                android:scaleType="fitStart"/>
 
         </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.example.eggapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,6 +10,7 @@ import com.example.eggapplication.databinding.ActivityReadyBinding;
 
 public class Ready extends AppCompatActivity {
     private ActivityReadyBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,26 @@ public class Ready extends AppCompatActivity {
             binding.textView.setText(Egg.READY[i]);
         }
 
+        binding.btnReady.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( Ready.this , Timer.class );
+                intent.putExtra("sook","bansook");
+                startActivity(intent); //액티비티 이동
+            }
+        });
+
+        binding.btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( Ready.this , Timer.class );
+                intent.putExtra("sook","wansook");
+                startActivity(intent); //액티비티 이동
+            }
+        });
+
+
     }
+
 
 }
