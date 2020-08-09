@@ -6,29 +6,21 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import com.example.eggapplication.databinding.ActivityStartBinding;
 
 public class Start extends AppCompatActivity {
 
-    private Button btn_wan;
-    private Button btn_ban;
+    private ActivityStartBinding binding;
 
-    private Button btn_start;
-    private Button btn_ready;
-
-
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.start);
+        binding= ActivityStartBinding.inflate(getLayoutInflater());
+        View view=binding.getRoot();
+        setContentView(view);
 
-        findViewById(R.id.start_page);
-
-        btn_wan = findViewById(R.id.btn_wan);
-        btn_ban = findViewById(R.id.btn_ban);
-
-        btn_ban.setOnClickListener(new View.OnClickListener() {
+        binding.btnBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent( Start.this , Timer.class );
@@ -37,7 +29,7 @@ public class Start extends AppCompatActivity {
             }
         });
 
-        btn_wan.setOnClickListener(new View.OnClickListener() {
+        binding.btnWan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent( Start.this , Timer.class );
@@ -46,7 +38,7 @@ public class Start extends AppCompatActivity {
             }
         });
 
-        btn_start.setOnClickListener(new View.OnClickListener() {
+        binding.btnStart.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -55,7 +47,7 @@ public class Start extends AppCompatActivity {
             }
         });
 
-        btn_ready.setOnClickListener(new View.OnClickListener() {
+        binding.btnReady.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {

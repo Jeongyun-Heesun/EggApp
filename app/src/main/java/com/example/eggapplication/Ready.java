@@ -1,16 +1,48 @@
 package com.example.eggapplication;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.example.eggapplication.databinding.ActivityReadyBinding;
 
 public class Ready extends AppCompatActivity {
+    private ActivityReadyBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding=ActivityReadyBinding.inflate(getLayoutInflater());
+        View view=binding.getRoot();
+        setContentView(view);
 
-        //findViewById(R.id.ready);
+        for(int i=0;i<Egg.READY.length;i++){
+            binding.textView.setText(Egg.READY[i]);
+        }
+
+        binding.btnReady.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( Ready.this , Timer.class );
+                intent.putExtra("sook","bansook");
+                startActivity(intent); //액티비티 이동
+            }
+        });
+
+        binding.btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( Ready.this , Timer.class );
+                intent.putExtra("sook","wansook");
+                startActivity(intent); //액티비티 이동
+            }
+        });
+
+
     }
+
+
 }

@@ -8,28 +8,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.eggapplication.databinding.ActivityTimerBinding;
+
 public class Timer extends AppCompatActivity {
 
-    private TextView text;
-
-    private Button btn_start;
-    private Button btn_ready;
+    private ActivityTimerBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.timer);
-
-        findViewById(R.id.timer_page);
-
-        text = findViewById(R.id.text);
+        binding= ActivityTimerBinding.inflate(getLayoutInflater());
+        View view=binding.getRoot();
+        setContentView(view);
 
         Intent intent = getIntent();
         String sook = intent.getStringExtra("sook");
 
-        text.setText(sook);
+        binding.text.setText(sook);
 
-        btn_start.setOnClickListener(new View.OnClickListener() {
+        binding.btnStart.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -38,7 +35,7 @@ public class Timer extends AppCompatActivity {
             }
         });
 
-        btn_ready.setOnClickListener(new View.OnClickListener() {
+        binding.btnReady.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
