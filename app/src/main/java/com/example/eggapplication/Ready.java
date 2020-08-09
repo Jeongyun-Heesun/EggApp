@@ -1,4 +1,16 @@
 package com.example.eggapplication;
 
-public class Ready {
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class Ready extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //findViewById(R.id.ready);
+    }
 }
