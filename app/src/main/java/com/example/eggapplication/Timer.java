@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.eggapplication.databinding.ActivityTimerBinding;
 
@@ -48,6 +46,7 @@ public class Timer extends AppCompatActivity {
                 startStop();
             }
         });
+
 
         binding.btnStart.setOnClickListener(new View.OnClickListener() {
 
