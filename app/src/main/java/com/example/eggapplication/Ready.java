@@ -26,8 +26,7 @@ public class Ready extends AppCompatActivity {
         binding.btnReady.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( Ready.this , Timer.class );
-                intent.putExtra("sook","bansook");
+                Intent intent = new Intent( Ready.this, Ready.class );
                 startActivity(intent); //액티비티 이동
             }
         });
@@ -35,8 +34,7 @@ public class Ready extends AppCompatActivity {
         binding.btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( Ready.this , Timer.class );
-                intent.putExtra("sook","wansook");
+                Intent intent = new Intent( Ready.this , Start.class );
                 startActivity(intent); //액티비티 이동
             }
         });
