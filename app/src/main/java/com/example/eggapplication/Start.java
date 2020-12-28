@@ -38,15 +38,6 @@ public class Start extends AppCompatActivity {
             }
         });
 
-        binding.btnStart.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                    Intent intent = new Intent( Start.this , Start.class );
-                    startActivity(intent); //액티비티 이동
-            }
-        });
-
         binding.btnReady.setOnClickListener(new View.OnClickListener() {
 
             @Override
