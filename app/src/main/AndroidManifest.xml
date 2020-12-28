@@ -13,7 +13,6 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".Timer"></activity>
-        <activity android:name=".Start"></activity>
         <activity android:name=".Ready">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
