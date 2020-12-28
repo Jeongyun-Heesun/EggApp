@@ -57,15 +57,6 @@ public class Start extends Fragment {
             }
         });
 
-        binding.btnReady.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext() , Ready.class );
-                startActivity(intent); //액티비티 이동
-            }
-        });
-
         return view;
     }
     @Override
