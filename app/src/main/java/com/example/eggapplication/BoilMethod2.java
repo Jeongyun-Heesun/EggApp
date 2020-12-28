@@ -40,7 +40,7 @@ public class BoilMethod2 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_boilmethod_2, container, false);
 
-        TextView tvLabel = view.findViewById(R.id.textView);
+        TextView tvLabel = view.findViewById(R.id.text);
         //tvLabel.setText(page + " -- " + title);
 
         tvLabel.setText( "2. 식초와 소금을 넣고 강불로 끓인다.");
