@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.eggapplication.databinding.ActivityReadyBinding;
 
@@ -19,6 +21,7 @@ public class Ready extends AppCompatActivity {
         View view=binding.getRoot();
         setContentView(view);
 
+
         for(int i=0;i<Egg.READY.length;i++){
             binding.textView.setText(Egg.READY[i]);
         }
@@ -26,7 +29,7 @@ public class Ready extends AppCompatActivity {
         binding.btnReady.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( Ready.this, Start.class );
+                Intent intent = new Intent( Ready.this, Ready.class );
                 startActivity(intent); //액티비티 이동
             }
         });

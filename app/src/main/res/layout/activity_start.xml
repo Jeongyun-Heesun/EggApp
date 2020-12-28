@@ -15,27 +15,26 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerInParent="true">
 
             <ImageButton
                 android:id="@+id/btn_wan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#00ffffff"
                 android:scaleType="fitStart"
-                android:src="@drawable/wan"
-                android:background="#00ffffff"/>
+                android:src="@drawable/wan" />
 
             <ImageButton
                 android:id="@+id/btn_ban"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:src="@drawable/ban"
                 android:layout_weight="1"
+                android:background="#00ffffff"
+                android:padding="3dp"
                 android:scaleType="fitStart"
-                android:background="#00ffffff"/>
+                android:src="@drawable/ban" />
 
         </LinearLayout>
 

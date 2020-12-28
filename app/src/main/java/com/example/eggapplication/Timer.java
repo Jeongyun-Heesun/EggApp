@@ -32,7 +32,7 @@ public class Timer extends AppCompatActivity {
 
         if (sook.equals("bansook")){
             timerText = "7:30";
-            timerLeft =450000;
+            timerLeft =10000; //450000
 
         } else if (sook.equals("wansook")){
             timerText = "9:00";
@@ -92,8 +92,8 @@ public class Timer extends AppCompatActivity {
             public void onFinish() {
                 Vibrator vib = (Vibrator)getSystemService(VIBRATOR_SERVICE);
                 vib.vibrate(1000);
-//                this.mediaPlayer = MediaPlayer.create(Timer.this, R.raw.chicken_cry);
-//                this.mediaPlayer.start();
+                mediaPlayer = MediaPlayer.create(Timer.this, R.raw.alarm2);
+                mediaPlayer.start();
             }
         }.start();
 
