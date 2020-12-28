@@ -48,25 +48,7 @@ public class Timer extends AppCompatActivity {
                 startStop();
             }
         });
-
-
-        binding.btnStart.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( Timer.this , Start.class );
-                startActivity(intent); //액티비티 이동
-            }
-        });
-
-        binding.btnReady.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( Timer.this , Ready.class );
-                startActivity(intent); //액티비티 이동
-            }
-        });
+        
     }
 
     public void startStop(){
