@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.eggapplication.databinding.ActivityReadyBinding;
@@ -24,8 +25,9 @@ public class Ready extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityReadyBinding.inflate(getLayoutInflater());
         View view=binding.getRoot();
-        FragmentPagerAdapter adapterViewPager;
+        final FragmentPagerAdapter adapterViewPager;
         setContentView(view);
+
 
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         binding.vpPager.setAdapter(adapterViewPager);
@@ -33,15 +35,6 @@ public class Ready extends AppCompatActivity {
 /*        for(int i=0;i<Egg.READY.length;i++){
             tv.setText(Egg.READY[i]);
         }*/
-
-        /*binding.btnStart*/
-        binding.btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( Ready.this , Start.class );
-                startActivity(intent); //액티비티 이동
-            }
-        });
 
 
     }
