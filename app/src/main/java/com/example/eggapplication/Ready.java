@@ -44,6 +44,7 @@ public class Ready extends AppCompatActivity {
             }
         });
 
+
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
@@ -69,7 +70,7 @@ public class Ready extends AppCompatActivity {
                 case 1:
                     return BoilMethod2.newInstance(1, "Page # 2");
                 case 2:
-                    return BoilMethod3.newInstance(2, "Page # 3");
+                    return Start.newInstance(2, "Page # 3");
                 default:
                     return null;
             }
