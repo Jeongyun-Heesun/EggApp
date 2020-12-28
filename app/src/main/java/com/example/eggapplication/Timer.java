@@ -97,7 +97,7 @@ public class Timer extends AppCompatActivity {
             }
         }.start();
 
-        binding.countdownButton.setText("PAUSE");
+        binding.countdownButton.setText("RESET");
         timerRunning=true;
     }
 
