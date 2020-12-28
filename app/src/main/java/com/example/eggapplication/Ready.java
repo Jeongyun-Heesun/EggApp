@@ -30,7 +30,6 @@ public class Ready extends AppCompatActivity {
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         binding.vpPager.setAdapter(adapterViewPager);
 
-
 /*        for(int i=0;i<Egg.READY.length;i++){
             tv.setText(Egg.READY[i]);
         }*/
