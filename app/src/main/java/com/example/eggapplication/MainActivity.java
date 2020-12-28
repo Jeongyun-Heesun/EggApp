@@ -12,5 +12,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.main);
+        //setTheme(R.style.AppTheme);
     }
 }

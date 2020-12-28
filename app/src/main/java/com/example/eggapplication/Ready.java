@@ -64,7 +64,6 @@ public class Ready extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-
                     return BoilMethod1.newInstance(0, "Page # 1");
                 case 1:
                     return BoilMethod2.newInstance(1, "Page # 2");
