@@ -16,10 +16,10 @@ public class Timer extends AppCompatActivity {
 
     private CountDownTimer countDownTimer;
     private long timerLeftInMilliSeconds;
-    private long timerLeft;
+    private long timerLeft =10000; //450000*/;
     private boolean timerRunning  = false;
     private ActivityTimerBinding binding;
-    private String timerText;
+    private String timerText =  "7:30";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,35 +33,27 @@ public class Timer extends AppCompatActivity {
 
         Long time = PreferencesUtil.getLongPreferences(this, "time");
         String timelefttext=PreferencesUtil.getPreferences(this,"timetext");
-        boolean isRunning = PreferencesUtil.getBoolPreferences(this,"timerRunning");
 
-        if(isRunning == true){
+
+        if (sook.equals("bansook")){/*
+            timerText = "7:30";
+            timerLeft =10000; //450000*/
+
             timerLeft= time;
             timerText = timelefttext;
-            binding.countdownText.setText(timerText);
-            startStop();
-        } else{
-            if (sook.equals("bansook")){
-                timerText = "7:30";
-                timerLeft =10000; //450000
 
-            } else if (sook.equals("wansook")){
-                timerText = "9:00";
-                timerLeft =540000;
+        }/* else if (sook.equals("wansook")){
+            timerText = "9:00";
+            timerLeft =540000;
 
+        }*/
+        binding.countdownText.setText(timerText);
+        binding.countdownButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startStop();
             }
-            binding.countdownText.setText(timerText);
-            binding.countdownButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startStop();
-                }
-            });
-        }
-
-
-
-
+        });
     }
 
     public void startStop(){
@@ -73,24 +65,30 @@ public class Timer extends AppCompatActivity {
     }
 
     public void startTimer(){
-        countDownTimer = new CountDownTimer(timerLeftInMilliSeconds=timerLeft, 1000) {
+        long count =timerLeft;
+
+        if(PreferencesUtil.getBoolPreferences(this,"timerRunning") == true){
+            count = PreferencesUtil.getLongPreferences(this,"time");
+        }
+        countDownTimer = new CountDownTimer(timerLeftInMilliSeconds = count, 1000) {
             private MediaPlayer mediaPlayer;
 
             @Override
             public void onTick(long l) {
-                timerLeftInMilliSeconds=l;
+                timerLeftInMilliSeconds = l;
                 updateTimer();
 
             }
 
             @Override
             public void onFinish() {
-                Vibrator vib = (Vibrator)getSystemService(VIBRATOR_SERVICE);
+                Vibrator vib = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                 vib.vibrate(1000);
                 mediaPlayer = MediaPlayer.create(Timer.this, R.raw.alarm2);
                 mediaPlayer.start();
             }
         }.start();
+
 
         binding.countdownButton.setText("RESET");
 
@@ -110,7 +108,7 @@ public class Timer extends AppCompatActivity {
     public void updateTimer(){
 
         PreferencesUtil.setLongPreferences(this,"time", timerLeft);
-        PreferencesUtil.setBoolPreferences(this,"timerRunning", true);
+        PreferencesUtil.setBoolPreferences(this,"timerRunning",true);
 
         int minutes=(int)timerLeftInMilliSeconds/60000;
         int seconds=(int) timerLeftInMilliSeconds%60000/1000;
