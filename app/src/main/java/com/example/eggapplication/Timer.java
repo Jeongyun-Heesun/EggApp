@@ -3,6 +3,7 @@ package com.example.eggapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -16,7 +17,7 @@ public class Timer extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private long timerLeftInMilliSeconds;
     private long timerLeft;
-    private boolean timerRunning;
+    private boolean timerRunning  = false;
     private ActivityTimerBinding binding;
     private String timerText;
 
@@ -30,25 +31,37 @@ public class Timer extends AppCompatActivity {
         Intent intent = getIntent();
         String sook = intent.getStringExtra("sook");
 
-        if (sook.equals("bansook")){
-            timerText = "7:30";
-            timerLeft =10000; //450000
+        Long time = PreferencesUtil.getLongPreferences(this, "time");
+        String timelefttext=PreferencesUtil.getPreferences(this,"timetext");
+        boolean isRunning = PreferencesUtil.getBoolPreferences(this,"timerRunning");
 
-        } else if (sook.equals("wansook")){
-            timerText = "9:00";
-            timerLeft =540000;
+        if(isRunning == true){
+            timerLeft= time;
+            timerText = timelefttext;
+            binding.countdownText.setText(timerText);
+            startStop();
+        } else{
+            if (sook.equals("bansook")){
+                timerText = "7:30";
+                timerLeft =10000; //450000
 
-        }
-        binding.countdownText.setText(timerText);
+            } else if (sook.equals("wansook")){
+                timerText = "9:00";
+                timerLeft =540000;
 
-
-        binding.countdownButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startStop();
             }
-        });
-        
+            binding.countdownText.setText(timerText);
+            binding.countdownButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startStop();
+                }
+            });
+        }
+
+
+
+
     }
 
     public void startStop(){
@@ -80,7 +93,9 @@ public class Timer extends AppCompatActivity {
         }.start();
 
         binding.countdownButton.setText("RESET");
+
         timerRunning=true;
+        PreferencesUtil.setBoolPreferences(this,"timerRunning",true);
     }
 
     public void stopTimer(){
@@ -89,9 +104,14 @@ public class Timer extends AppCompatActivity {
         timerLeftInMilliSeconds=timerLeft;
         binding.countdownButton.setText("START");
         timerRunning=false;
+        PreferencesUtil.setBoolPreferences(this,"timerRunning",false);
     }
 
     public void updateTimer(){
+
+        PreferencesUtil.setLongPreferences(this,"time", timerLeft);
+        PreferencesUtil.setBoolPreferences(this,"timerRunning", true);
+
         int minutes=(int)timerLeftInMilliSeconds/60000;
         int seconds=(int) timerLeftInMilliSeconds%60000/1000;
 
@@ -100,7 +120,11 @@ public class Timer extends AppCompatActivity {
         timeLeftText+=":";
         if(seconds<10) timeLeftText+="0";
         timeLeftText+=seconds;
+
+        PreferencesUtil.setPreferences(this,"timetext",timeLeftText);
+
         binding.countdownText.setText(timeLeftText);
 
     }
 }
+
